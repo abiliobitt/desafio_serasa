@@ -37,7 +37,7 @@ export const CommentsProvider: FC<PropsWithChildren> = ({ children }): ReactElem
 
   useEffect(() => {
     getComments()
-  }, [])
+  }, [getComments])
   return (
     <CommentsContext.Provider
       value={{
