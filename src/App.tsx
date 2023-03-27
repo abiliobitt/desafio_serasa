@@ -1,11 +1,10 @@
-import { ComponentsProvider, DisplayFont } from 'web-components'
+import { ComponentsProvider } from 'web-components'
+import Routes from './Routes';
 
 function App() {
   return (
     <ComponentsProvider>
-        <DisplayFont>
-          Base Aplication
-        </DisplayFont>
+      <Routes />
     </ComponentsProvider>
   );
 }
