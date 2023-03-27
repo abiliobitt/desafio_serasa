@@ -1,11 +1,14 @@
 import { ComponentsProvider } from 'web-components'
+import Providers from './providers';
 import Routes from './Routes';
 
 function App() {
   return (
-    <ComponentsProvider>
-      <Routes />
-    </ComponentsProvider>
+    <Providers>
+      <ComponentsProvider>
+        <Routes />
+      </ComponentsProvider>
+    </Providers>
   );
 }
 
