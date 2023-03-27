@@ -1,9 +1,12 @@
 import { FC } from 'react'
-import { DisplayFont, HeadingM, BodyM } from 'web-components'
+import { DisplayFont, HeadingM, Loading } from 'web-components'
+import CommentBox from '../../components/comment'
 import NavBar from '../../components/NavBar'
+import { useComments } from '../../contexts/comments'
 import { Container } from './styles'
 
 const Home: FC = () => {
+  const { comments, loading } = useComments()
   return (
     <>
       <NavBar />
@@ -24,6 +27,15 @@ const Home: FC = () => {
       <HeadingM>
         Nossas avaliações
       </HeadingM>
+      {
+        loading ?
+        <Loading />:
+        comments &&
+        comments.map(commentItem => {
+          const { _id, name, stars, comment} = commentItem
+          return (<CommentBox key={_id!} name={name} stars={stars} comment={comment!} />)
+        })
+      }
     </Container>
     </>
   )
