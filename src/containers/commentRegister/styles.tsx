@@ -10,6 +10,10 @@ export const Container = styled.div`
     }
     ${HeadingM} {
       text-align: center;
+      margin: 30px 0px 0px 0px;
+    }
+    ${BodyM} {
+      margin: 15px 0px 0px 0px;
     }
 `
 export const FormContainer = styled.form`
