@@ -32,8 +32,8 @@ const Home: FC = () => {
         <Loading />:
         comments &&
         comments.map(commentItem => {
-          const { _id, name, stars, comment} = commentItem
-          return (<CommentBox key={_id!} name={name} stars={stars} comment={comment!} />)
+          const { id, name, stars, comment} = commentItem
+          return (<CommentBox key={id!} name={name} stars={stars} comment={comment!} />)
         })
       }
     </Container>
