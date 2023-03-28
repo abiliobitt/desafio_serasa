@@ -17,6 +17,7 @@ const StarRate: FC<StarRateProps> = ({rate, setRate}) => {
           key={`start${i}`}
           aria-label={`Nota em estrela ${i}`}
           tabIndex={i+1}
+          data-testid={`star${i+1}`}
         >
           <Icon
             iconName={`${rate <= i ? 'star' : 'filledStart'}`}

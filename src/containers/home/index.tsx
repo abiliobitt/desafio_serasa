@@ -29,7 +29,17 @@ const Home: FC = () => {
       <HeadingM tabIndex={4}>
         Nossas avaliações
       </HeadingM>
-      <BodyM bold tabIndex={5}> Quer nos avaliar? <Link to='/registrar-comentario' tabIndex={6} aria-label='Link para avaliar serviços'>Clique aqui.</Link> </BodyM>
+      <BodyM bold tabIndex={5}>
+        Quer nos avaliar? <span> </span>
+          <Link
+            to='/registrar-comentario'
+            tabIndex={6}
+            aria-label='Link para avaliar serviços'
+            data-testid='ratingLink'
+          >
+              Clique aqui.
+          </Link>
+        </BodyM>
       {
         loading ?
         <Loading />:

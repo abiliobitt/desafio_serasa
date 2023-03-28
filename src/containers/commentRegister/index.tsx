@@ -59,7 +59,7 @@ const CommentRegister : FC = () => {
        <img src={logo} alt="logotipo" />
       <HeadingM className='title'>Conte o quanto você está satisfeito com nossos serviços</HeadingM>
       <FormContainer onSubmit={(e) => handleSubmit(e)}>
-        { message && <Toaster variant={message.variant}><HeadingM>{message.message}</HeadingM></Toaster>}
+        { message && <Toaster variant={message.variant} data-testid='toaster'><HeadingM>{message.message}</HeadingM></Toaster>}
         <BodyM bold> Marque de 1 à 5 estrelas</BodyM>
         <StarRate rate={rate} setRate={setRating} aria-label='Nota em estrelas' />
         <label htmlFor="name">Nome</label>
@@ -69,6 +69,7 @@ const CommentRegister : FC = () => {
           aria-label='Nome'
           onChange={(e) => handleChange(e)}
           value={formInfos['name']}
+          data-testid='name'
           required
         />
         <label htmlFor="comment">Comentário(Opcional)</label>
@@ -76,9 +77,10 @@ const CommentRegister : FC = () => {
           name="comment"
           aria-label='Comentário'
           onChange={(e) => handleChange(e)}
+          data-testid='comment'
           value={formInfos['comment']}
         />
-        <Button type='submit'>Enviar avaliação</Button>
+        <Button type='submit' data-testid='submitButton'>Enviar avaliação</Button>
       </FormContainer>
       </Container>
     </ModalBox>

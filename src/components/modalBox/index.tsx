@@ -27,6 +27,7 @@ const ModalBox: FC<ModalProps> = ({children}) => {
         data-dismiss='modal'
         aria-label='Fechar Modal'
         onClick={() => closeModal()}
+        data-testid='closeModal'
       >
         <Icon width={30} height={30} iconName='xCircle' fill={COLORS.PRIMARY} classes='' />
         </CloseButton>
