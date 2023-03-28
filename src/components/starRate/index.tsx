@@ -12,7 +12,12 @@ const StarRate: FC<StarRateProps> = ({rate, setRate}) => {
     const stars = []
     for (let i = 0; i < 5; i++) {
       stars.push(
-        <span onClick={() => {setRate(i+1)}} key={`start${i}`}>
+        <span
+          onClick={() => {setRate(i+1)}}
+          key={`start${i}`}
+          aria-label={`Nota em estrela ${i}`}
+          tabIndex={i+1}
+        >
           <Icon
             iconName={`${rate <= i ? 'star' : 'filledStart'}`}
             classes=''

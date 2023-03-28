@@ -6,9 +6,10 @@ interface CommentBoxProps {
   name: string
   stars: number
   comment?: string
+  tabIndex?: number
 }
 
-const CommentBox: FC<CommentBoxProps> = ({ name, stars, comment }) => {
+const CommentBox: FC<CommentBoxProps> = ({ name, stars, comment, tabIndex }) => {
   const returnStars = () => {
     const elements = []
     for (let index = 0; index < 5; index++) {
@@ -23,7 +24,7 @@ const CommentBox: FC<CommentBoxProps> = ({ name, stars, comment }) => {
     return elements
   }
   return (
-    <Container>
+    <Container tabIndex={tabIndex} aria-label='Cometário'>
       <BodyM bold>Nome: {name}</BodyM>
       {returnStars()}
       <BodyM bold>Comment: </BodyM>

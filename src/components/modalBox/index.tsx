@@ -21,7 +21,13 @@ const ModalBox: FC<ModalProps> = ({children}) => {
   return (
     <Modal isShowing={isShowing} hide={() => toggle()}>
       <>
-        <CloseButton type='button' className='modal-close-button' data-dismiss='modal' aria-label='Close' onClick={() => closeModal()}>
+        <CloseButton
+        type='button'
+        className='modal-close-button'
+        data-dismiss='modal'
+        aria-label='Fechar Modal'
+        onClick={() => closeModal()}
+      >
         <Icon width={30} height={30} iconName='xCircle' fill={COLORS.PRIMARY} classes='' />
         </CloseButton>
         {children}

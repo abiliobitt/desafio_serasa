@@ -61,11 +61,12 @@ const CommentRegister : FC = () => {
       <FormContainer onSubmit={(e) => handleSubmit(e)}>
         { message && <Toaster variant={message.variant}><HeadingM>{message.message}</HeadingM></Toaster>}
         <BodyM bold> Marque de 1 à 5 estrelas</BodyM>
-        <StarRate rate={rate} setRate={setRating} />
+        <StarRate rate={rate} setRate={setRating} aria-label='Nota em estrelas' />
         <label htmlFor="name">Nome</label>
         <input
           type="text"
           name='name'
+          aria-label='Nome'
           onChange={(e) => handleChange(e)}
           value={formInfos['name']}
           required
@@ -73,6 +74,7 @@ const CommentRegister : FC = () => {
         <label htmlFor="comment">Comentário(Opcional)</label>
         <textarea
           name="comment"
+          aria-label='Comentário'
           onChange={(e) => handleChange(e)}
           value={formInfos['comment']}
         />
