@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { Icon, COLORS } from 'web-components'
 import { Container } from './styles'
 
@@ -12,7 +12,7 @@ const StarRate: FC<StarRateProps> = ({rate, setRate}) => {
     const stars = []
     for (let i = 0; i < 5; i++) {
       stars.push(
-        <span onClick={() => {setRate(i+1)}}>
+        <span onClick={() => {setRate(i+1)}} key={`start${i}`}>
           <Icon
             iconName={`${rate <= i ? 'star' : 'filledStart'}`}
             classes=''

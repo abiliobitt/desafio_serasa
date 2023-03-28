@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {HeadingM, BodyM, COLORS} from 'web-components'
+import {HeadingM, BodyM,} from 'web-components'
 
 export const Container = styled.div`
   height: auto;

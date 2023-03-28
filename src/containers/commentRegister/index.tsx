@@ -1,18 +1,22 @@
-import { FC, SyntheticEvent, useState } from 'react'
-import ModalBox from '../../components/modalBox'
+import { FC, useContext, useState } from 'react'
 import {HeadingM, BodyM, Button} from 'web-components'
+
 import logo from '../../serasa-logo-full.svg';
 import { Container, FormContainer } from './styles';
+import ModalBox from '../../components/modalBox'
 import StarRate from '../../components/starRate';
+import { CommentsContext } from '../../contexts/comments';
 
 interface IForm {
-  name?: string
+  name: string
   comment?: string
+  stars: number
 }
 
-const defaultValues = { name: '', comment: ''}
+const defaultValues = { name: '', comment: '', stars: 0}
 
 const CommentRegister : FC = () => {
+  const { postComments } = useContext(CommentsContext)
   const [rate, setRate] = useState(0)
   const [formInfos, setFormInfos] = useState<IForm>(defaultValues)
 
@@ -21,14 +25,32 @@ const CommentRegister : FC = () => {
   }
 
   const handleChange = (event: React.FormEvent<HTMLInputElement> | React.FormEvent<HTMLTextAreaElement>) => {
-    setFormInfos({[event.currentTarget.name]: event.currentTarget.value})
+    setFormInfos({
+      ...formInfos,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const handleSubmit = (event: React.SyntheticEvent) => {
+    event.preventDefault()
+    if(rate <= 0) {
+      alert('xablau')
+    } else {
+
+      const obj = {
+        name: formInfos['name'],
+        comment: formInfos['comment'],
+        stars: rate
+      }
+      postComments(obj)
+    }
   }
   return (
     <ModalBox>
       <Container>
        <img src={logo} alt="logotipo" />
       <HeadingM className='title'>Conte o quanto você está satisfeito com nossos serviços</HeadingM>
-      <FormContainer>
+      <FormContainer onSubmit={(e) => handleSubmit(e)}>
       <BodyM bold> Marque de 1 à 5 estrelas</BodyM>
         <StarRate rate={rate} setRate={setRating} />
         <label htmlFor="name">Nome</label>
@@ -37,6 +59,7 @@ const CommentRegister : FC = () => {
           name='name'
           onChange={(e) => handleChange(e)}
           value={formInfos['name']}
+          required
         />
         <label htmlFor="comment">Comentário(Opcional)</label>
         <textarea
@@ -44,7 +67,7 @@ const CommentRegister : FC = () => {
           onChange={(e) => handleChange(e)}
           value={formInfos['comment']}
         />
-        <Button>Enviar avaliação</Button>
+        <Button type='submit'>Enviar avaliação</Button>
       </FormContainer>
       </Container>
     </ModalBox>

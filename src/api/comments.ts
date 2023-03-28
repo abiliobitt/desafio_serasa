@@ -18,3 +18,14 @@ export const apiGetComments = (): Promise<IComment[]> => {
     })
   return comments
 }
+
+export const apiPostComments = (data: IComment): Promise<IComment[]> => {
+  const comments = axios.post(`${process.env.REACT_APP_API_URL}/comments`, data)
+    .then((response) => {
+      return response.data
+    })
+    .catch((error) => {
+      console.log('error', error)
+    })
+  return comments
+}
