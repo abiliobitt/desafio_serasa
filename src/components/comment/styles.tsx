@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLORS } from 'web-components'
+import { BodyM, COLORS } from 'web-components'
 
 export const Container = styled.div`
   max-width: 500px;
@@ -7,4 +7,7 @@ export const Container = styled.div`
   margin: 20px 0px;
   border-radius: 8px;
   border: 1px solid ${COLORS.DARK_LOW};
+  ${BodyM} {
+    margin: 0;
+  }
 `

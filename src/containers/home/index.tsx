@@ -1,5 +1,7 @@
 import { FC } from 'react'
-import { DisplayFont, HeadingM, Loading } from 'web-components'
+import { Link } from "react-router-dom";
+
+import { BodyM, DisplayFont, HeadingM, Loading } from 'web-components'
 import CommentBox from '../../components/comment'
 import NavBar from '../../components/NavBar'
 import { useComments } from '../../contexts/comments'
@@ -27,6 +29,7 @@ const Home: FC = () => {
       <HeadingM>
         Nossas avaliações
       </HeadingM>
+      <BodyM bold> Quer nos avaliar? <Link to='/registrar-comentario'>Clique aqui.</Link> </BodyM>
       {
         loading ?
         <Loading />:
