@@ -1,5 +1,5 @@
 export interface IComment {
-  _id?: string
+  id?: string
   index?: number
   name: string
   stars: number
