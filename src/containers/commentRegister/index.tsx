@@ -1,5 +1,5 @@
 import { FC, useContext, useState } from 'react'
-import {HeadingM, BodyM, Button} from 'web-components'
+import {HeadingM, BodyM, Button, Toaster} from 'web-components'
 
 import logo from '../../serasa-logo-full.svg';
 import { Container, FormContainer } from './styles';
@@ -13,12 +13,18 @@ interface IForm {
   stars: number
 }
 
+interface Message {
+  message: string
+  variant: 'success' | 'error'
+}
+
 const defaultValues = { name: '', comment: '', stars: 0}
 
 const CommentRegister : FC = () => {
   const { postComments } = useContext(CommentsContext)
   const [rate, setRate] = useState(0)
   const [formInfos, setFormInfos] = useState<IForm>(defaultValues)
+  const [message, setMessage] = useState<Message|null>(null)
 
   const setRating = (rate: number) => {
     setRate(rate)
@@ -34,7 +40,7 @@ const CommentRegister : FC = () => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
     if(rate <= 0) {
-      alert('xablau')
+      setMessage({message: 'Preencha a nota', variant: 'error'})
     } else {
 
       const obj = {
@@ -43,15 +49,18 @@ const CommentRegister : FC = () => {
         stars: rate
       }
       postComments(obj)
+      setMessage({message: 'Obrigado por avaliar nossos serviços.', variant: 'success'})
     }
   }
   return (
     <ModalBox>
       <Container>
+
        <img src={logo} alt="logotipo" />
       <HeadingM className='title'>Conte o quanto você está satisfeito com nossos serviços</HeadingM>
       <FormContainer onSubmit={(e) => handleSubmit(e)}>
-      <BodyM bold> Marque de 1 à 5 estrelas</BodyM>
+        { message && <Toaster variant={message.variant}><HeadingM>{message.message}</HeadingM></Toaster>}
+        <BodyM bold> Marque de 1 à 5 estrelas</BodyM>
         <StarRate rate={rate} setRate={setRating} />
         <label htmlFor="name">Nome</label>
         <input
