@@ -1,4 +1,4 @@
-export interface Response<Type> {
+export interface IResponse<Type> {
   error?: boolean
   success?: boolean
   message?: string

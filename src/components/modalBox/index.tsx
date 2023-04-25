@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router'
 import {Modal, useModal, Icon, COLORS } from 'web-components'
 import { CloseButton } from './styles'
 
-interface ModalProps {
+interface IModalProps {
   children: ReactElement
 }
 
-const ModalBox: FC<ModalProps> = ({children}) => {
+const ModalBox: FC<IModalProps> = ({children}) => {
   const { isShowing, toggle } = useModal()
   const navigate = useNavigate()
   useEffect(() => {

@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { IComment } from '../interfaces/comment'
-import { Response } from '../interfaces/response'
+import { IResponse } from '../interfaces/response'
 
-export interface CommentsResponseData {
+export interface ICommentsResponseData {
   comments? : IComment[]
 }
 
-export type RequestComments = Response<CommentsResponseData>
+export type RequestComments = IResponse<ICommentsResponseData>
 
 export const apiGetComments = (): Promise<IComment[]> => {
   const comments = axios.get(`${process.env.REACT_APP_API_URL}/comments`)

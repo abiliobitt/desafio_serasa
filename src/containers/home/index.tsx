@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Link } from "react-router-dom";
 
 import { BodyM, DisplayFont, HeadingM, Loading } from 'web-components'
-import CommentBox from '../../components/comment'
+import CommentBox from '../../components/commentBox'
 import NavBar from '../../components/NavBar'
 import { useComments } from '../../contexts/comments'
 import { Container } from './styles'

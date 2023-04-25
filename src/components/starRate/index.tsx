@@ -2,12 +2,12 @@ import { FC } from 'react'
 import { Icon, COLORS } from 'web-components'
 import { Container } from './styles'
 
-interface StarRateProps {
+interface IStarRateProps {
   rate: number
   setRate: (number: number) => void
 }
 
-const StarRate: FC<StarRateProps> = ({rate, setRate}) => {
+const StarRate: FC<IStarRateProps> = ({rate, setRate}) => {
   const generateStars = () => {
     const stars = []
     for (let i = 0; i < 5; i++) {

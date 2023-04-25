@@ -13,7 +13,7 @@ interface IForm {
   stars: number
 }
 
-interface Message {
+interface IMessage {
   message: string
   variant: 'success' | 'error'
 }
@@ -24,7 +24,7 @@ const CommentRegister : FC = () => {
   const { postComments } = useContext(CommentsContext)
   const [rate, setRate] = useState(0)
   const [formInfos, setFormInfos] = useState<IForm>(defaultValues)
-  const [message, setMessage] = useState<Message|null>(null)
+  const [message, setMessage] = useState<IMessage|null>(null)
 
   const setRating = (rate: number) => {
     setRate(rate)
