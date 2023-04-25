@@ -2,14 +2,14 @@ import { FC } from 'react'
 import { Container } from './styles'
 import { BodyM, COLORS, Icon } from 'web-components'
 
-interface CommentBoxProps {
+interface ICommentBoxProps {
   name: string
   stars: number
   comment?: string
   tabIndex?: number
 }
 
-const CommentBox: FC<CommentBoxProps> = ({ name, stars, comment, tabIndex }) => {
+const CommentBox: FC<ICommentBoxProps> = ({ name, stars, comment, tabIndex }) => {
   const returnStars = () => {
     const elements = []
     for (let index = 0; index < 5; index++) {
