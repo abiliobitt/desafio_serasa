@@ -1,14 +1,18 @@
-# A caminho de criar um amanhã melhor
+## Requerimentos para rodar o projeto
+
+  - node: "^16.0.0"
+  - npm: "^8.0.0",
+  - yarn: "^1.0.0"
 
 ## Passo a passo
 
  - Primeiro clone o projeto do  [design system](https://github.com/abiliobitt/web-components)
  - Abra projeto no seu editor e instale as dependências (`yarn build` ou `npm run build`)
- - Clone [este projeto](https://github.com/abiliobitt/desafio_serasa) na mesma pasta do **design system**  `git clone https://github.com/abiliobitt/web-components.git`
+ - Clone [este projeto](https://github.com/abiliobitt/desafio_web) na mesma pasta do **design system**  `git clone https://github.com/abiliobitt/web-components.git`
  - Abra o projeto e instale as dependências
  - Crie um arquivo com nome **.env.local** e adicione as seguintes variáveis de ambiente:
 
->     REACT_APP_TITLE='Serasa'
+>     REACT_APP_TITLE='Desafio Web'
 >     REACT_APP_API_URL='http://localhost:5000'
 
  - Rode o comando "clear"  (`yarn clear` ou `npm run clear`)
