@@ -32,8 +32,7 @@
     "cy:open": "cypress open",
     "clear": "rimraf node_modules/web-components/node_modules/",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "lint:fix": "eslint --fix"
   },
   "eslintConfig": {
     "extends": [
