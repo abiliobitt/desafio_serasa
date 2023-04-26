@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {HeadingM, BodyM,} from 'web-components'
+import {HeadingM, BodyM} from 'web-components'
 
 export const Container = styled.div`
   height: auto;
@@ -7,14 +7,14 @@ export const Container = styled.div`
     width: 150px;
     display: block;
     margin: 0 auto;
-    }
-    ${HeadingM} {
-      text-align: center;
-      margin: 30px 0px 0px 0px;
-    }
-    ${BodyM} {
-      margin: 15px 0px 0px 0px;
-    }
+  }
+  ${HeadingM} {
+    text-align: center;
+    margin: 30px 0px 0px 0px;
+  }
+  ${BodyM} {
+    margin: 15px 0px 0px 0px;
+  }
 `
 export const FormContainer = styled.form`
   display: flex;
@@ -24,7 +24,8 @@ export const FormContainer = styled.form`
   ${BodyM} {
     text-align: center;
   }
-  input, textarea {
+  input,
+  textarea {
     background-color: #f2f2f2;
     padding: 10px;
     box-sizing: border-box;

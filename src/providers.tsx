@@ -1,10 +1,6 @@
-import { ReactElement } from 'react'
-import { CommentsProvider } from './contexts/comments'
+import {ReactElement} from 'react'
+import {CommentsProvider} from './contexts/comments'
 
-export default function Providers({ children }: { children: ReactElement }): ReactElement {
-  return (
-    <CommentsProvider>
-      {children}
-    </CommentsProvider>
-  )
+export default function Providers({children}: {children: ReactElement}): ReactElement {
+  return <CommentsProvider>{children}</CommentsProvider>
 }

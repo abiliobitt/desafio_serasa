@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLORS } from 'web-components'
+import {COLORS} from 'web-components'
 
 export const Container = styled.div`
   width: 80%;

@@ -1,28 +1,29 @@
-import {createContext,
+import {
+  createContext,
   FC,
   PropsWithChildren,
   ReactElement,
   useCallback,
   useContext,
   useEffect,
-  useState
+  useState,
 } from 'react'
-import { apiGetComments, apiPostComments } from '../../api/comments'
+import {apiGetComments, apiPostComments} from '../../api/comments'
 
-import { IComment } from '../../interfaces/comment'
+import {IComment} from '../../interfaces/comment'
 
 interface ICommentsContext {
-  comments?: IComment[],
-  loading?: boolean,
+  comments?: IComment[]
+  loading?: boolean
   getComments?: () => Promise<IComment[]>
   postComments: (data: IComment) => Promise<IComment[]>
 }
 const defaultValue: ICommentsContext = {
   comments: [],
   loading: false,
-  postComments: apiPostComments
+  postComments: apiPostComments,
 }
-export const CommentsContext = createContext<ICommentsContext|typeof defaultValue>(defaultValue)
+export const CommentsContext = createContext<ICommentsContext | typeof defaultValue>(defaultValue)
 
 export const useComments = (): ICommentsContext => {
   const context = useContext(CommentsContext)
@@ -33,7 +34,7 @@ export const useComments = (): ICommentsContext => {
   return context
 }
 
-export const CommentsProvider: FC<PropsWithChildren> = ({ children }): ReactElement => {
+export const CommentsProvider: FC<PropsWithChildren> = ({children}): ReactElement => {
   const [comments, setComments] = useState<IComment[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 
@@ -45,13 +46,16 @@ export const CommentsProvider: FC<PropsWithChildren> = ({ children }): ReactElem
     return data
   }, [setComments, setLoading])
 
-  const postComments = useCallback(async (comment: IComment): Promise<IComment[]> => {
-    setLoading(true)
-    const data = await apiPostComments(comment)
-    setComments(comments => [...comments, comment])
-    setLoading(false)
-    return data
-  }, [setComments, setLoading])
+  const postComments = useCallback(
+    async (comment: IComment): Promise<IComment[]> => {
+      setLoading(true)
+      const data = await apiPostComments(comment)
+      setComments(comments => [...comments, comment])
+      setLoading(false)
+      return data
+    },
+    [setComments, setLoading],
+  )
 
   useEffect(() => {
     getComments()
@@ -61,9 +65,8 @@ export const CommentsProvider: FC<PropsWithChildren> = ({ children }): ReactElem
       value={{
         comments,
         loading,
-        postComments
-      }}
-    >
+        postComments,
+      }}>
       {children}
     </CommentsContext.Provider>
   )

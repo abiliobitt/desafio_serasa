@@ -11,7 +11,7 @@ describe('Check home', () => {
 
   it('Check validation error input name', () => {
     cy.get('[data-testid="submitButton"]').click()
-    cy.get('[data-testid="name"]').then(($input) => {
+    cy.get('[data-testid="name"]').then($input => {
       expect($input[0].validationMessage).to.eq('Preencha este campo.')
     })
   })

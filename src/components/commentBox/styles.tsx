@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BodyM, COLORS } from 'web-components'
+import {BodyM, COLORS} from 'web-components'
 
 export const Container = styled.div`
   max-width: 500px;

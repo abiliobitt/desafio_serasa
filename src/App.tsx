@@ -1,6 +1,6 @@
-import { ComponentsProvider } from 'web-components'
-import Providers from './providers';
-import Routes from './Routes';
+import {ComponentsProvider} from 'web-components'
+import Providers from './providers'
+import Routes from './Routes'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <Routes />
       </ComponentsProvider>
     </Providers>
-  );
+  )
 }
 
-export default App;
+export default App

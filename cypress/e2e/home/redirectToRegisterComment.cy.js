@@ -7,6 +7,5 @@ describe('Check home', () => {
   it('Check if link redirect to register comment screen', () => {
     cy.get('[data-testid="ratingLink"]').click()
     cy.location('pathname').should('eq', '/registrar-comentario')
-
   })
 })

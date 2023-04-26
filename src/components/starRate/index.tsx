@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import { Icon, COLORS } from 'web-components'
-import { Container } from './styles'
+import {FC} from 'react'
+import {Icon, COLORS} from 'web-components'
+import {Container} from './styles'
 
 interface IStarRateProps {
   rate: number
@@ -13,29 +13,26 @@ const StarRate: FC<IStarRateProps> = ({rate, setRate}) => {
     for (let i = 0; i < 5; i++) {
       stars.push(
         <span
-          onClick={() => {setRate(i+1)}}
+          onClick={() => {
+            setRate(i + 1)
+          }}
           key={`start${i}`}
           aria-label={`Nota em estrela ${i}`}
-          tabIndex={i+1}
-          data-testid={`star${i+1}`}
-        >
+          tabIndex={i + 1}
+          data-testid={`star${i + 1}`}>
           <Icon
             iconName={`${rate <= i ? 'star' : 'filledStart'}`}
-            classes=''
+            classes=""
             fill={COLORS.PRIMARY}
             width={24}
             height={24}
           />
-        </span>
+        </span>,
       )
     }
     return stars
   }
-  return (
-    <Container>
-      {generateStars()}
-    </Container>
-  )
+  return <Container>{generateStars()}</Container>
 }
 
 export default StarRate

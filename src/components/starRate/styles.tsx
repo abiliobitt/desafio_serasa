@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-margin: 15px auto;
- span {
-  cursor: pointer;
- }
+  margin: 15px auto;
+  span {
+    cursor: pointer;
+  }
 `
